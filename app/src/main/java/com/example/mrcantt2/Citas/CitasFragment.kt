@@ -83,7 +83,7 @@ class CitasFragment : Fragment() {
 
     private fun obtenerCitas() {
         CoroutineScope(Dispatchers.IO).launch {
-            val call = RetrofitClient.webService.obtenerCitas()
+            val call = RetrofitClient.webService.obtenerCitas(id_mascota = 190)
             requireActivity().runOnUiThread {
                 if (call.isSuccessful) {
                     listaCitas = call.body()?.listaCitas ?: arrayListOf()
