@@ -15,8 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-
-
 class CitasFragment : Fragment() {
 
     private lateinit var binding: FragmentCitasBinding

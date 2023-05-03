@@ -18,7 +18,7 @@ interface WebService {
     suspend fun obtenerCitas(): Response<CitasResponse>
 
     // Obtener las citas de una mascota específica
-    @GET("/cita/{id_mascota}")
+    @GET("/citas/{id_cita}")
     suspend fun obtenerCitas(
         @Path("id_mascota") id_mascota: Int
     ): Response<CitasResponse>
