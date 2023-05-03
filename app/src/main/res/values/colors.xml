@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="morado">#5C68FF</color>
+    <color name="verde">#01C07A</color>
+    <color name="naranja">#FF8264</color>
+
+    <color name="fondo_menu_lateral">#49A2D3</color>
+
+    <color name="botones_azules">#3D76F2</color>
+    <color name="btnEditar">#CC3D76F2</color>
+
+    <color name="btnAgendar">#5CBBF6</color>
+    <color name="btnCancelar">#FF5252</color>
+
+
+    <color name="btnAgendarCV">#5C68FF</color>
+    <color name="btnAgendarCM">#FF8264</color>
+    <color name="btnAgendarCE">#01C07A</color>
+
+
+
+
+
+
+
+</resources>

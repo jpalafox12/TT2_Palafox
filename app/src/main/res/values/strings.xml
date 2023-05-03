@@ -1,0 +1,126 @@
+<resources>
+    <string name="app_name">Mr. Can</string>
+    <string name="textoIniciarSesion">INICIAR SESIÓN</string>
+    <string name="textoIngresar">Ingresar</string>
+    <string name="ingresaCorreo">Ingresa el correo electrónico</string>
+    <string name="ingresaContraseña">Ingresa tu contraseña</string>
+    <string name="correo">Correo Electrónico</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="textoRecuperarContraseña">¿Olvidaste la contraseña?</string>
+    <string name="textoRegistrarse"><u>Registrarse</u></string>
+    <string name="nombreVet">Mr. Can</string>
+
+    <string name="olvidaste_contrasena">¿Olvidaste la contraseña?</string>
+    <string name="correo_recuperar">Ingresa tu correo electronico para recibir tu contraseña</string>
+    <string name="enviarContraseña">Enviar contraseña</string>
+    <string name="title_activity_inicio_cliente">InicioCliente</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Jesus Palafox</string>
+    <string name="nav_header_subtitle">jpalafox32@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    //MENU LATERAL
+
+    <string name="mis_mascotas">Mis Mascotas</string>
+    <string name="citas">Citas</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+
+    //CITAS
+
+    <string name="prox_citas">Próximas citas</string>
+
+    <string name="medica">Médica</string>
+    <string name="estetica">Estética</string>
+    <string name="vacunacion">Vacunación</string>
+
+    <string name="agendar_cita">Agendar Cita</string>
+
+    <string name="cita_vacunacion">Cita de Vacunación</string>
+    <string name="cita_medica">Cita Médica</string>
+    <string name="cita_estetica">Cita Estética</string>
+
+    <string name="dialogo_cancelar_cita">Desea cancelar su cita?</string>
+    <string name="si_cancelar">Si</string>
+    <string name="no_cancelar">No</string>
+
+    <string name="seleccionar_mascota">Seleccione la mascota</string>
+    <string name="descripcion">Descripción</string>
+    <string name="observaciones">Observaciones</string>
+    <string name="agendar">Agendar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="vacuna">Vacuna</string>
+
+    <string-array name="ejemplo_masoctas">
+        <item>Pochita</item>
+        <item>Kira</item>
+        <item>Paco</item>
+        <item>Nina</item>
+    </string-array>
+
+    <string-array name="ejemplo_horas">
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+    </string-array>
+
+    <string name="menu_mascotas">Mis mascotas</string>
+    <string name="menu_citas">Citas</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="registro_titulo">Registro</string>
+    <string name="nombre_registro">Nombre</string>
+    <string name="apellido_registro">Apellidos</string>
+    <string name="telefono_registro">Teléfono</string>
+    <string name="correo_registro">Correo Electrónico</string>
+    <string name="estado_registro">Estado</string>
+    <string name="ciudad_registro">Ciudad</string>
+    <string name="colonia_registro">Colonia</string>
+    <string name="codigo_postal_registro">Código Postal</string>
+    <string name="calle_registro">Calle</string>
+    <string name="numero_exterior_registro">Número exterior</string>
+    <string name="contrasena_registro">Contraseña</string>
+    <string name="confirmar_contrasena">Confirmar contraseña</string>
+    <string name="boton_registrar">Registrar</string>
+
+    <string name="hint_nombre_registro">Ingrese su nombre</string>
+    <string name="hint_apellido_registro">Ingrese sus apellidos</string>
+    <string name="hint_telefono_registro">Ingrese su numero de teléfono</string>
+    <string name="hint_correo_registro">Ingrese su correo electrónico</string>
+    <string name="hint_estado_registro">Ingrese su estado</string>
+    <string name="hint_ciudad_registro">Ingrese su ciudad</string>
+    <string name="hint_colonia_registro">Ingrese su colonia</string>
+    <string name="hint_codigo_postal_registro">Ingrese su C.P.</string>
+    <string name="hint_calle_registro">Ingrese su calle</string>
+    <string name="hint_numero_exterior_registro">Ingrese su número exterior</string>
+    <string name="hint_contrasena_registro">Ingrese su contraseña</string>
+    <string name="hint_confirmar_contrasena">Confirmar contraseña</string>
+    <string name="hint_boton_registrar">Registrar</string>
+
+
+    <string name="text_titulo">text</string>
+    <string name="si_button">si</string>
+    <string name="no_button">no</string>
+    <string name="nombre_perfil">Nombre</string>
+    <string name="datos_perfil">Nacimiento: 00/00/0000\n\nRaza: Ejemplo\n\nPadecimientos: Ninguno\n\nSexo: No binario</string>
+    <string name="datos_titulo_perfil">Datos</string>
+
+    <string name="agendarCita">Agendar</string>
+    <string name="cancelarCita">Cancelar</string>
+
+
+
+    //HINTS PARA REGISTRO CLIENTES
+
+
+
+</resources>
