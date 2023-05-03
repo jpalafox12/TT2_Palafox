@@ -22,6 +22,7 @@ class CitasFragment : Fragment() {
     private lateinit var binding: FragmentCitasBinding
     private lateinit var adatador: CitasAdapter
     private var listaCitas = arrayListOf<Cita>()
+
     //private var isEditando = false
 
     override fun onCreateView(
@@ -88,10 +89,22 @@ class CitasFragment : Fragment() {
             requireActivity().runOnUiThread {
                 if (call.isSuccessful) {
                     listaCitas = call.body()?.listaCitas ?: arrayListOf()
-                    setupRecyclerView()
+                    if (listaCitas.isEmpty()) {
+                        // Muestra el mensaje "No tienes citas pendientes"
+                        Toast.makeText(
+                            requireContext(),
+                            "No tienes citas pendientes",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        setupRecyclerView()
+                    }
                 } else {
-                    Toast.makeText(requireContext(), "ERROR CONSULTAR TODOS", Toast.LENGTH_LONG)
-                        .show()
+                    Toast.makeText(
+                        requireContext(),
+                        "ERROR CONSULTAR TODOS",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         }
@@ -100,7 +113,7 @@ class CitasFragment : Fragment() {
     private fun borrarCita(position: Int) {
         val cita = listaCitas[position]
         CoroutineScope(Dispatchers.IO).launch {
-            val response = RetrofitClient.webService.cancelarCita(cita.id_cita)
+            val response = RetrofitClient.webService.cancelarCita(cita.id_cita) // Nueva función que llama a una API para eliminar la cita de la base de datos
             requireActivity().runOnUiThread {
                 if (response.isSuccessful) {
                     Toast.makeText(requireContext(), "Cita cancelada exitosamente", Toast.LENGTH_LONG).show()

@@ -8,6 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mrcantt2.R
+import com.example.mrcantt2.RetrofitClient
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -34,7 +38,24 @@ class CitasAdapter (
         holder.ivCancelarCita.setOnClickListener {
             cancelarCitaListener(position)
         }
-
+        // Obtener las citas de una mascota específica
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = RetrofitClient.webService.obtenerCitas(id_mascota = 190)
+                if (response.isSuccessful) {
+                    val citas = response.body()?.listaCitas
+                    if (citas != null) {
+                        listaCitas.clear()
+                        listaCitas.addAll(citas)
+                        notifyDataSetChanged()
+                    }
+                } else {
+                    // Manejar error de respuesta HTTP
+                }
+            } catch (e: Exception) {
+                // Manejar error de red
+            }
+        }
 
         // Holder para la parte del TextView FechaCita -- Sostiene el TV del cardview Citas Proximas
         holder.tvTipoCita.text = cita.tipo_cita
@@ -85,6 +106,8 @@ class CitasAdapter (
         //fun editarUsuario(usuario: Usuario)
         fun cancelarCita(id_cita: Int)
     }
+
+
 
 }
 

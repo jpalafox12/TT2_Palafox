@@ -9,25 +9,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 object AppConstantes {
-    const val BASE_URL = "http://192.168.0.7:3000/"
+    const val BASE_URL = "http://192.168.0.121:3000/"
 }
 
 interface WebService {
-
-    //poner que reciba el ID
+    // Obtener todas las citas
     @GET("/citas")
     suspend fun obtenerCitas(): Response<CitasResponse>
 
+    // Obtener las citas de una mascota específica
     @GET("/cita/{id_mascota}")
-    suspend fun obtenerUsuario(
+    suspend fun obtenerCitas(
         @Path("id_mascota") id_mascota: Int
-    ): Response<Cita>
-
-    @POST("/cita/add")
-    suspend fun agregarCita(
-        @Body cita: Cita
-    ): Response<String>
-
+    ): Response<CitasResponse>
 
     @DELETE("/cita/delete/{id_cita}")
     suspend fun cancelarCita(
