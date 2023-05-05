@@ -25,7 +25,10 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:layout_margin="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/borde_punteado"
             android:clipToOutline="true"
             android:elevation="2dp"
@@ -40,8 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
 
+                android:layout_margin="5dp"
                 android:elevation="2dp"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -54,6 +57,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/manrope_semibold"
+                    android:padding="2dp"
                     android:text="Informacion Personal" />-
 
                 <TextView
@@ -61,6 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/manrope_medium"
+                    android:padding="2dp"
                     android:text="Jesús Palafox Sánchez" />
 
                 <TextView
@@ -68,6 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/manrope_medium"
+                    android:padding="2dp"
                     android:text="(123) 456-7890" />
 
                 <TextView
@@ -75,6 +81,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/manrope_medium"
+                    android:padding="2dp"
                     android:text="abcdef@gmail.com" />
 
             </LinearLayout>
@@ -92,32 +99,32 @@
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:outlineProvider="bounds"
-            android:elevation="2dp"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:layout_centerInParent="true"
-            android:paddingHorizontal="20dp"
-            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:background="@drawable/borde_punteado"
-            >
+            android:elevation="2dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:outlineProvider="bounds"
+            android:padding="16dp"
+            android:paddingHorizontal="20dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
                 android:background="#00F2F2F2"
-                android:padding="16dp"
-                android:orientation="vertical"
-                android:layout_margin="16dp"
 
                 android:elevation="2dp"
-                android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:padding="16dp"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="15dp">
 
@@ -125,6 +132,7 @@
                     android:id="@+id/textView17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="2dp"
                     android:text="TextView" />
 
                 <TableLayout
@@ -133,55 +141,64 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/tvCitasVacunacionUsuario"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/manrope_medium"
+                            android:padding="2dp"
                             android:text="Citas Vacunación" />
 
                         <TextView
                             android:id="@+id/textView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:paddingStart="5dp"
                             android:text="TextView" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/tvCitasMedicasUsuario"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/manrope_medium"
+                            android:padding="2dp"
                             android:text="Citas Médicas" />
 
                         <TextView
                             android:id="@+id/textView6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:paddingStart="5dp"
                             android:text="TextView" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/tvCitasEsteticasUsuario"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/manrope_medium"
+                            android:padding="2dp"
                             android:text="Citas Estéticas" />
 
                         <TextView
                             android:id="@+id/textView16"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:paddingStart="5dp"
                             android:text="TextView" />
                     </TableRow>
                 </TableLayout>

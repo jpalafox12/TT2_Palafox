@@ -18,8 +18,7 @@ class AgendarVacunacionFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_agendar_vacunacion, container, false)
 
         // Obtener referencias a los elementos de la vista
-        //val mascotasSpinner = view.findViewById<Spinner>(R.id.spinnerSM_CV)
-
+        //val mascotasSpinner = view.findViewById<Spinner>
 
         return view
     }

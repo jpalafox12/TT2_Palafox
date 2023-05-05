@@ -28,7 +28,8 @@
         app:menu="@menu/nav_menu"
         android:fitsSystemWindows="true"
         app:itemTextColor="@color/white"
-        android:background="@color/fondo_menu_lateral"/>
+        android:background="@color/fondo_menu_lateral"
+        app:itemBackground="@drawable/menu_item_selected"/>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

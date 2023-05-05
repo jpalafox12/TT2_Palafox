@@ -65,13 +65,8 @@ class CitasFragment : Fragment() {
         setupRecyclerView()
 
 
-        obtenerCitas()
+        obtenerCitasPendientes()
     }
-
-//    private fun setupRecyclerView() {
-//        adatador = CitasAdapter(requireContext(), listaCitas)
-//        binding.root.findViewById<RecyclerView>(R.id.recyclerviewCitasProximas).adapter = adatador
-//    }
 
     private fun setupRecyclerView() {
         adatador = CitasAdapter(requireContext(), listaCitas) { position ->
@@ -81,9 +76,9 @@ class CitasFragment : Fragment() {
     }
 
 
-    private fun obtenerCitas() {
+    private fun obtenerCitasPendientes() {
         CoroutineScope(Dispatchers.IO).launch {
-            val call = RetrofitClient.webService.obtenerCitas(id_mascota = 190)
+            val call = RetrofitClient.webService.obtenerCitasPendientes(id_mascota = 190)
             requireActivity().runOnUiThread {
                 if (call.isSuccessful) {
                     listaCitas = call.body()?.listaCitas ?: arrayListOf()

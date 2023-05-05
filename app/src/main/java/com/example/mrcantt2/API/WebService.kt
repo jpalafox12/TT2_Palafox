@@ -15,11 +15,11 @@ object AppConstantes {
 interface WebService {
     // Obtener todas las citas
     @GET("/citas")
-    suspend fun obtenerCita(): Response<CitasResponse>
+    suspend fun obtenerCitas(): Response<CitasResponse>
 
     // Obtener las citas de una mascota específica
     @GET("/citas/{id_mascota}")
-    suspend fun obtenerCitas(
+    suspend fun obtenerCitasPendientes(
         @Path("id_mascota") id_mascota: Int
     ): Response<CitasResponse>
 
