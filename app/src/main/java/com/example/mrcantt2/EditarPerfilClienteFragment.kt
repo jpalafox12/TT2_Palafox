@@ -133,7 +133,7 @@ class EditarPerfilClienteFragment : Fragment() {
         val dialogo = activity?.let { Dialog(it, R.style.CustomDialogStyle) }
         dialogo?.setContentView(R.layout.dialogo_cambio_exitoso)
         val titulo = dialogo?.findViewById<TextView>(R.id.dialogo_correcto)
-        titulo?.text = "Los datos de su mascota se actualizaron correctamente"
+        titulo?.text = "Sus datos se actualizaron correctamente"
         dialogo?.setCancelable(true)
         dialogo?.show()
         Handler().postDelayed({
