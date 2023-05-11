@@ -36,7 +36,7 @@ class CitasFragment : Fragment() {
 
         binding.citaVacunacionButton.setOnClickListener {
             val agendarVacunacionFragment = AgendarVacunacionFragment()
-            agendarVacunacionFragment.tipoCita = "vacunacion" // Aquí estableces el tipo de cita
+            //agendarVacunacionFragment.tipoCita = "vacunacion" // Aquí estableces el tipo de cita
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, agendarVacunacionFragment)
                 .addToBackStack(null)
@@ -68,17 +68,18 @@ class CitasFragment : Fragment() {
         obtenerCitasPendientes()
     }
 
-    private fun setupRecyclerView() {
-        adatador = CitasAdapter(requireContext(), listaCitas) { position ->
-            borrarCita(position) // Paso 3: Llamar a cancelarCita
+    fun setupRecyclerView() {
+        adatador = CitasAdapter(requireContext(), listaCitas) {
+            // Acciones al hacer clic en una cita
         }
-        binding.root.findViewById<RecyclerView>(R.id.recyclerviewCitasProximas).adapter = adatador
+        binding.recyclerviewCitasProximas.adapter = adatador
     }
+
 
 
     private fun obtenerCitasPendientes() {
         CoroutineScope(Dispatchers.IO).launch {
-            val call = RetrofitClient.webService.obtenerCitasPendientes(id_mascota = 190)
+            val call = RetrofitClient.webServ.obtenerCitasPendientes(id_mascota = 190)
             requireActivity().runOnUiThread {
                 if (call.isSuccessful) {
                     listaCitas = call.body()?.listaCitas ?: arrayListOf()
@@ -98,22 +99,6 @@ class CitasFragment : Fragment() {
                         "ERROR CONSULTAR TODOS",
                         Toast.LENGTH_LONG
                     ).show()
-                }
-            }
-        }
-    }
-
-    private fun borrarCita(position: Int) {
-        val cita = listaCitas[position]
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = RetrofitClient.webService.cancelarCita(cita.id_cita) // Nueva función que llama a una API para eliminar la cita de la base de datos
-            requireActivity().runOnUiThread {
-                if (response.isSuccessful) {
-                    Toast.makeText(requireContext(), "Cita cancelada exitosamente", Toast.LENGTH_LONG).show()
-                    listaCitas.removeAt(position)
-                    adatador.notifyItemRemoved(position)
-                } else {
-                    Toast.makeText(requireContext(), "Error al cancelar cita", Toast.LENGTH_LONG).show()
                 }
             }
         }

@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(
                         applicationContext,
                         "Vas a entrar a MI PERFIL",
-                    Toast.LENGTH_SHORT
+                        Toast.LENGTH_SHORT
                     ).show()
                     replaceFragment(PerfilUsuarioFragment(), it.title.toString())
                     drawerLayout.closeDrawer(GravityCompat.START)

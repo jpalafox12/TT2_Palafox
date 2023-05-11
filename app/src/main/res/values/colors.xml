@@ -18,18 +18,13 @@
     <color name="botones_azules">#3D76F2</color>
     <color name="btnEditar">#CC3D76F2</color>
 
-    <color name="btnAgendar">#5CBBF6</color>
+    <color name="btnGuardar">#5CBBF6</color>
     <color name="btnCancelar">#FF5252</color>
 
 
     <color name="btnAgendarCV">#5C68FF</color>
     <color name="btnAgendarCM">#FF8264</color>
     <color name="btnAgendarCE">#01C07A</color>
-
-
-
-
-
 
 
 </resources>

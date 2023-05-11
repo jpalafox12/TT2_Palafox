@@ -1,10 +1,12 @@
-package com.example.mrcantt2
+package com.example.ttmrcan
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
+import com.example.mrcantt2.LogIn
+import com.example.mrcantt2.R
 
 class FlashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -116,6 +116,10 @@
 
     <string name="agendarCita">Agendar</string>
     <string name="cancelarCita">Cancelar</string>
+    <string name="guardar">Guardar</string>
+
+
+    <string name="editarPerfilUsuario">Editar Perfil</string>
 
 
 

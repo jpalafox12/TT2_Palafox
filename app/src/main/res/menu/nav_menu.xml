@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_mascotas"
             android:title="Mis Mascotas"
-            android:icon="@drawable/logout_selector"/>
+            android:icon="@drawable/paw"/>
         <item
             android:id="@+id/nav_citas"
             android:title="Citas"

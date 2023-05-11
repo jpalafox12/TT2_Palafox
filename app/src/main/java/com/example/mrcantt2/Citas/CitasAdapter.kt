@@ -1,13 +1,18 @@
 package com.example.mrcantt2.Citas
 
+import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mrcantt2.R
+import com.example.mrcantt2.RetrofitClient
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -30,10 +35,31 @@ class CitasAdapter (
     override fun onBindViewHolder(holder: CitaViewHolder, position: Int) {
         val cita = listaCitas[position]
 
+
         // Paso 2: Configurar listener para botón de cancelar
         holder.ivCancelarCita.setOnClickListener {
-            cancelarCitaListener(position)
+            val cancelDialog = Dialog(context)
+            cancelDialog.setContentView(R.layout.cancel_dialog)
+            cancelDialog.setCancelable(false)
+
+            cancelDialog.findViewById<Button>(R.id.btnNo_Cancelar).setOnClickListener {
+                cancelDialog.dismiss()
+            }
+
+            val motivoEditText = cancelDialog.findViewById<EditText>(R.id.etMotivoCancelacion)
+            cancelDialog.findViewById<Button>(R.id.btnSi_Cancelar).setOnClickListener {
+                val motivo = motivoEditText.text.toString().trim()
+                if (motivo.isEmpty()) {
+                    motivoEditText.error = "Por favor ingresa el motivo de la cancelación"
+                } else {
+                    // Aquí puedes realizar cualquier otra operación que necesites antes de cerrar el cuadro de diálogo
+                    eliminarCita(position)
+                    cancelDialog.dismiss()
+                }
+            }
+            cancelDialog.show()
         }
+
 
         // Holder para la parte del TextView FechaCita -- Sostiene el TV del cardview Citas Proximas
         holder.tvTipoCita.text = cita.tipo_cita
@@ -63,10 +89,6 @@ class CitasAdapter (
         // Establecer la fecha formateada en el TextView correspondiente
         holder.tvFechaCita.text = fechaFormateada
 
-        // Holder para la parte del ImageView el cual se comporta como un boton (X) de cancelar cita
-//        holder.ivCancelarCita.setOnClickListener {
-//            onClick?.cancelarCita(cita.id_cita)//*
-//        }
     }
 
     override fun getItemCount(): Int {
@@ -79,6 +101,34 @@ class CitasAdapter (
         val tvHoraCita = itemView.findViewById(R.id.horaCitaTextView) as TextView
         val ivCancelarCita = itemView.findViewById(R.id.ivCancelarCita) as ImageView
     }
+
+    fun eliminarCita(position: Int) {
+        val cita = listaCitas[position]
+        val idCita = cita.id_cita // Obtener el ID de la cita que se está eliminando
+
+        // Llamar al endpoint de cancelarCita para eliminar la cita de la base de datos
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = RetrofitClient.webServ.cancelarCita(idCita)
+
+            if (response.isSuccessful) {
+                // Si la llamada HTTP es exitosa, eliminar la cita de la lista y notificar al adaptador
+                listaCitas.removeAt(position)
+                withContext(Dispatchers.Main) {
+                    notifyItemRemoved(position)
+                }
+            } else {
+                // Si la llamada HTTP no es exitosa, mostrar un mensaje de error al usuario
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Error al cancelar la cita", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+
+
+
+
 
 }
 

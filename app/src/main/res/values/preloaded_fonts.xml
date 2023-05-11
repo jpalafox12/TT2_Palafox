@@ -8,5 +8,7 @@
         <item>@font/mulish_extrabold</item>
         <item>@font/nunito</item>
         <item>@font/nunito_extrabold</item>
+        <item>@font/roboto</item>
+        <item>@font/roboto_medium</item>
     </array>
 </resources>
