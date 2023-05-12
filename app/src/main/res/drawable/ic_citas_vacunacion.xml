@@ -6,6 +6,6 @@
             android:gravity="center"/>
 
         <item
-            android:drawable="@drawable/stethoscope"
+            android:drawable="@drawable/needle"
             android:gravity="center"/>
 </layer-list>
