@@ -95,7 +95,6 @@
                 android:background="@drawable/borde_azul"
                 android:ems="10"
                 android:fontFamily="@font/mulish_bold"
-                android:hint="@string/hint_nombre_registro"
                 android:inputType="textEmailAddress"/>
 
 
@@ -123,7 +122,6 @@
                 android:background="@drawable/borde_azul"
                 android:ems="10"
                 android:fontFamily="@font/mulish_bold"
-                android:hint="@string/hint_apellido_registro"
                 android:inputType="textEmailAddress"
                 android:padding="15dp"
                 android:textColor="@color/black" />
@@ -153,8 +151,7 @@
                 android:background="@drawable/borde_azul"
                 android:ems="10"
                 android:fontFamily="@font/mulish_bold"
-                android:inputType="phone"
-                android:hint="@string/hint_telefono_registro"/>
+                android:inputType="phone"/>
 
             <TextView
                 android:id="@+id/tvCorreoEditarPerfil"
@@ -181,8 +178,7 @@
                 android:background="@drawable/borde_azul"
                 android:ems="10"
                 android:fontFamily="@font/mulish_bold"
-                android:inputType="textEmailAddress"
-                android:hint="@string/hint_correo_registro"/>
+                android:inputType="textEmailAddress"/>
 
 
             <TextView
@@ -209,8 +205,7 @@
                 android:textColor="@color/black"
                 android:background="@drawable/borde_azul"
                 android:ems="10"
-                android:fontFamily="@font/mulish_bold"
-                android:hint="@string/hint_estado_registro"/>
+                android:fontFamily="@font/mulish_bold"/>
 
             <TextView
                 android:id="@+id/tvCiudadEditarPerfil"
@@ -236,8 +231,7 @@
                 android:textColor="@color/black"
                 android:background="@drawable/borde_azul"
                 android:ems="10"
-                android:fontFamily="@font/mulish_bold"
-                android:hint="@string/hint_ciudad_registro"/>
+                android:fontFamily="@font/mulish_bold"/>
 
             <TextView
                 android:id="@+id/tvColoniaEditarPerfil"
@@ -264,7 +258,6 @@
                 android:background="@drawable/borde_azul"
                 android:ems="10"
                 android:fontFamily="@font/mulish_bold"
-                android:hint="@string/hint_colonia_registro"
                 />
 
             <TextView
@@ -291,8 +284,7 @@
                 android:textColor="@color/black"
                 android:background="@drawable/borde_azul"
                 android:ems="10"
-                android:fontFamily="@font/mulish_bold"
-                android:hint="@string/hint_codigo_postal_registro"/>
+                android:fontFamily="@font/mulish_bold"/>
 
             <TextView
                 android:id="@+id/tvCalleEditarPerfil"
@@ -318,8 +310,7 @@
                 android:textColor="@color/black"
                 android:background="@drawable/borde_azul"
                 android:ems="10"
-                android:fontFamily="@font/mulish_bold"
-                android:hint="@string/hint_calle_registro"/>
+                android:fontFamily="@font/mulish_bold"/>
 
             <TextView
                 android:id="@+id/tvNumExtEditarPerfil"
@@ -345,8 +336,7 @@
                 android:textColor="@color/black"
                 android:background="@drawable/borde_azul"
                 android:ems="10"
-                android:fontFamily="@font/mulish_bold"
-                android:hint="@string/hint_numero_exterior_registro"/>
+                android:fontFamily="@font/mulish_bold"/>
 
 
             <TextView
@@ -374,8 +364,7 @@
                 android:background="@drawable/borde_azul"
                 android:ems="10"
                 android:fontFamily="@font/mulish_bold"
-                android:inputType="textPassword"
-                android:hint="@string/hint_contrasena_registro"/>
+                android:inputType="textPassword"/>
 
             <TextView
                 android:id="@+id/tvConfirmarContrasenaEditarPerfil"
@@ -402,8 +391,7 @@
                 android:background="@drawable/borde_azul"
                 android:ems="10"
                 android:fontFamily="@font/mulish_bold"
-                android:inputType="textPassword"
-                android:hint="@string/hint_confirmar_contrasena"/>
+                android:inputType="textPassword"/>
 
 
         </LinearLayout>
