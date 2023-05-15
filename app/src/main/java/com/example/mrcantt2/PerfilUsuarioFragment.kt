@@ -77,7 +77,7 @@ class PerfilUsuarioFragment : Fragment() {
         // Set click listeners for each button
         editarPerfil.setOnClickListener {
             // Replace the current Fragment with the Agendar Fragment
-            val perfilEditarFragment = EditarPerfilClienteFragment()
+            val perfilEditarFragment = EditarPerfilUsuarioFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragment_container, perfilEditarFragment)
             transaction?.addToBackStack(null)

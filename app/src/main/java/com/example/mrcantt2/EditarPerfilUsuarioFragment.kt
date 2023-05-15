@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.mrcantt2.databinding.FragmentEditarPerfilClienteBinding
+import com.example.ttmrcan.RetrofitClient
 import com.example.ttmrcan.Usuario
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +20,7 @@ import kotlinx.coroutines.launch
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
 
-class EditarPerfilClienteFragment : Fragment() {
+class EditarPerfilUsuarioFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var binding: FragmentEditarPerfilClienteBinding
     private lateinit var inflater: LayoutInflater

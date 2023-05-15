@@ -1,33 +1,43 @@
-package com.example.mrcantt2
+package com.example.ttmrcan
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
+import android.widget.*
+import androidx.activity.addCallback
+import androidx.fragment.app.Fragment
 import com.example.mrcantt2.databinding.FragmentAgendarMedicaBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AgendarMedicaFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AgendarMedicaFragment : Fragment() {
+    private var param1: String? = null
+    private var param2: String? = null
 
     private lateinit var binding: FragmentAgendarMedicaBinding
+    private var listaMascotas: List<String> = emptyList()
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentAgendarMedicaBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -35,8 +45,70 @@ class AgendarMedicaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tipoCita = arguments?.getString("tipo_cita")
+        val sharedPreferencesUsuario =
+            requireContext().getSharedPreferences("idUsuario", Context.MODE_PRIVATE)
+        val valorUsuarioId = sharedPreferencesUsuario.getInt("id", 2)
+        obtenerMascotasUsuario(valorUsuarioId)
 
-        // Usa el valor de tipoCita para configurar la interfaz de usuario
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            requireActivity().supportFragmentManager.popBackStack()
+            binding.btnAgendarCitaMedica.setOnClickListener {
+                //agendarCitaMedica()
+            }
+        }
+    }
+
+
+    fun obtenerMascotasUsuario(id: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val call = RetrofitClient.webServ.obtenerMascotasUsuario(id)
+            requireActivity().runOnUiThread {
+                if (call.isSuccessful) {
+                    listaMascotas = call.body()?.listaMascotas?.map { it.nombre_mascota } ?: emptyList()
+                    if (listaMascotas.isNotEmpty()) {
+                        val mascotaAdapter = ArrayAdapter(
+                            requireContext(),
+                            android.R.layout.simple_spinner_item,
+                            listaMascotas
+                        )
+
+                        mascotaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        binding.spinnerSMCM.adapter = mascotaAdapter
+                    } else {
+                        Toast.makeText(activity, "No tienes mascotas aún", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(
+                        activity,
+                        "Error al obtener las mascotas del usuario",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+    }
+
+
+
+
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment FragmentoCitas.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            AgendarMedicaFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
     }
 }

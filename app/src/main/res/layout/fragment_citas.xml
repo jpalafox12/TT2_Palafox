@@ -16,7 +16,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="0dp"
             android:fontFamily="@font/nunito_extrabold"
             android:text="@string/prox_citas"
@@ -27,7 +27,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="170dp">
+            android:layout_height="250dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerviewCitasProximas"
@@ -56,7 +56,7 @@
             android:textSize="22sp" />
 
         <Button
-            android:id="@+id/cita_vacunacion_button"
+            android:id="@+id/btnAbrirCitaVacunacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -81,7 +81,7 @@
             app:iconTint="#FFFFFF" />
 
         <Button
-            android:id="@+id/cita_medica_button"
+            android:id="@+id/btnAbrirCitaMedica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -104,7 +104,7 @@
             app:iconPadding="15dp" />
 
         <Button
-            android:id="@+id/cita_estetica_button"
+            android:id="@+id/btnAbrirCitaEstetica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
