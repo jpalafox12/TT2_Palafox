@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.mrcantt2.*
+import com.example.mrcantt2.AgendarEsteticaFragment
 import com.example.mrcantt2.databinding.FragmentCitasBinding
+import com.example.mrcantt2.databinding.FragmentPerfilUsuarioBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,22 +18,33 @@ import kotlinx.coroutines.launch
 
 class CitasFragment : Fragment() {
 
-    private lateinit var binding: FragmentCitasBinding
     private lateinit var adatador: CitasAdapter
     private var listaCitas = arrayListOf<Cita>()
 
-    //private var isEditando = false
+    private lateinit var binding: FragmentCitasBinding
+    private lateinit var inflater: LayoutInflater
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentCitasBinding.inflate(inflater, container, false)
+    ): View? {
+        // Inflate the layout for this fragment
+        this.inflater = inflater
+        this.binding = FragmentCitasBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         binding.citaVacunacionButton.setOnClickListener {
             val agendarVacunacionFragment = AgendarVacunacionFragment()
@@ -64,7 +76,6 @@ class CitasFragment : Fragment() {
         binding.recyclerviewCitasProximas.layoutManager = LinearLayoutManager(requireContext())
         setupRecyclerView()
 
-
         obtenerCitasPendientes()
     }
 
@@ -78,8 +89,9 @@ class CitasFragment : Fragment() {
 
 
     private fun obtenerCitasPendientes() {
+        val idUsuario = arguments?.getInt("id_usuario")
         CoroutineScope(Dispatchers.IO).launch {
-            val call = RetrofitClient.webServ.obtenerCitasPendientes(id_mascota = 190)
+            val call = RetrofitClient.webServ.obtenerCitasPendientes(id_mascota = idUsuario!!)
             requireActivity().runOnUiThread {
                 if (call.isSuccessful) {
                     listaCitas = call.body()?.listaCitas ?: arrayListOf()
