@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
 
-class EditarPerfilClienteFragment : Fragment() {
+class EditarPerfilUsuarioFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var binding: FragmentEditarPerfilClienteBinding
     private lateinit var inflater: LayoutInflater
